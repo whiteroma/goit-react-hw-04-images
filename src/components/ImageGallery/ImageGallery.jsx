@@ -20,7 +20,7 @@ const ImageGallery = ({ images, imgAlt }) => {
 ImageGallery.propTypes = {
   images: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
       webformatURL: PropTypes.string.isRequired,
       largeImageURL: PropTypes.string.isRequired,
       imgAlt: PropTypes.string.isRequired,
