@@ -15,11 +15,13 @@ export default function App() {
   const [page, setPage] = useState(1);
   const [imgName, setImgName] = useState('');
 
-  const handleFormSubmit = imgName => {
-    setImgName(imgName);
-    console.log(imgName);
-    setPage(1);
-    setImage([]);
+  const handleFormSubmit = value => {
+    if (value !== imgName) {
+      setImgName(value);
+      console.log(imgName);
+      setPage(1);
+      setImage([]);
+    }
   };
 
   const loadMore = () => {
@@ -60,12 +62,12 @@ export default function App() {
   return (
     <Container>
       <ToastContainer autoClose={3000} />
-      <SearchBar onSubmit={handleFormSubmit} />
-      {status === 'pending' && (
+      <SearchBar value={imgName} onSubmit={handleFormSubmit} />
+      {/* {status === 'pending' && (
         <Container>
           <Loader />
         </Container>
-      )}
+      )} */}
 
       {image.length > 0 && (
         <Container>

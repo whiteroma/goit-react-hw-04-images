@@ -7,18 +7,17 @@ import { useEffect } from 'react';
 const modalRoot = document.querySelector('#modal-root');
 
 export default function Modal({ onClose, children }) {
-
   useEffect(() => {
     const handleKeyDown = e => {
-      console.log('handleKeyDown')
-      if (e.code === 'Escape') {;
+      console.log('handleKeyDown');
+      if (e.code === 'Escape') {
         onClose();
       }
     };
     window.addEventListener('keydown', handleKeyDown);
 
     return () => window.removeEventListener('keydown', handleKeyDown);
-  });
+  }, [onClose]);
 
   const handleOverlayClick = e => {
     if (e.target !== e.currentTarget) {

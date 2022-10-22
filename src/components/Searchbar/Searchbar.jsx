@@ -15,7 +15,7 @@ const validationSchema = Yup.string({
   imgName: Yup.string().required('Please enter your search query'),
 });
 
-export default function Searchbar({ onSubmit }) {
+export default function Searchbar({ onSubmit, imgName }) {
   const handleSubmit = (values, { resetForm }) => {
     if (values.imgName.trim() === '') {
       return toast.error('Please enter your search query');
@@ -40,6 +40,7 @@ export default function Searchbar({ onSubmit }) {
             name="imgName"
             type="text"
             placeholder="Search images and photos"
+            value={imgName}
           />
         </SearchForm>
       </Formik>
